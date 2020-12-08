@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,12 +15,18 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import com.college.grading.domain.Allocation;
 import com.college.grading.domain.Grades;
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+
 class AllocationServiceTest {
 private static final Logger logger = LogManager.getLogger(AllocationServiceTest.class);
 	
-	@Autowired
+	
 	AllocationService allocationService ;
+	
+	@BeforeEach
+	void beforeEach() {
+		allocationService = new AllocationService();
+		allocationService.postConstruct();
+	}
 	
 	/**
 	 * This test case sets teacher's allocation
