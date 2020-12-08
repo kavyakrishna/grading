@@ -119,6 +119,7 @@ private static final Logger logger = LogManager.getLogger(AllocationServiceTest.
 			allocationService.getCompleteAssessment("Stuart", "Tom");
 		} catch (Exception e) {
 			logger.error(e.getMessage());
+			
 			assertEquals("Student/Teacher does not exist",e.getMessage());
 		}
 	}
